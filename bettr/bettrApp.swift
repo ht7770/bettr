@@ -11,7 +11,7 @@ import SwiftUI
 struct bettrApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SignUp()
         }
     }
 }
