@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct bettrApp: App {
+    
+    @State var loggedIn: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            SignUp()
+            
+            if loggedIn{
+                ContentView()
+            }
+            else{
+                SignUp(loggedIn: $loggedIn)
+            }
         }
     }
 }

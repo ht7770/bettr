@@ -11,11 +11,15 @@ import SwiftUI
 
 struct SignUp: View {
     
-   @State var firstName: String = ""
-   @State var lastName: String = ""
-   @State var DOB = Date()
+    @State var firstName: String = ""
+    @State var lastName: String = ""
+    @State var Authentication: Bool = true
+    
+    @Binding var loggedIn: Bool
+    
     
     var body: some View {
+        
         ZStack{
             backgroundColour()
             
@@ -26,39 +30,11 @@ struct SignUp: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 150, height: 150)
                 
-                
-                TextField("First Name", text: $firstName)
-                    .padding()
-                    .frame(width: 370, height: 50)
-                    .foregroundColor(.black)
-                    .background(Color.init(white: 0.85))
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                TextField("Last Name", text: $lastName)
-                    .padding()
-                    .frame(width: 370, height: 50)
-                    .foregroundColor(.black)
-                    .background(Color.init(white: 0.85))
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                DatePicker("Date of Birth", selection: $DOB,in: ...Date(), displayedComponents: .date)
-                    .padding()
-                    .foregroundColor(.black)
-                    .frame(width: 370, height: 50)
-                    .background(Color.init(white: 0.85))
-                    .cornerRadius(5.0)
-                    .padding(.bottom, 20)
-                
-                Button(action: {
-                    var newUser = users(firstName: firstName, lastName: lastName, DOB: DOB)
-                }) {
-                    Text("Submit")
-                        .padding()
-                        .cornerRadius(5.0)
-                        .frame(width: 220, height: 60)
-                        .foregroundColor(.black)
-                        .background(Color.init(white: 0.85))
-                }
+                    
+                firstNameTextField(firstName: $firstName)
+                lastNameTextField(lastName: $lastName)
+                submitButton(loggedIn: $loggedIn)
+        
             
                 
             }
@@ -66,11 +42,54 @@ struct SignUp: View {
             
         }
     }
+    
 }
 
-struct SignUp_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUp()
+struct firstNameTextField: View {
+    @Binding var firstName: String
+    var body: some View {
+        TextField("First Name", text: $firstName)
+            .padding()
+            .frame(width: 370, height: 50)
+            .foregroundColor(.black)
+            .background(Color.init(white: 0.85))
+            .cornerRadius(5.0)
+            .padding(.bottom, 20)
+        
     }
 }
- 
+
+struct lastNameTextField: View {
+    @Binding var lastName: String
+    var body: some View {
+        TextField("Last Name", text: $lastName)
+            .padding()
+            .frame(width: 370, height: 50)
+            .foregroundColor(.black)
+            .background(Color.init(white: 0.85))
+            .cornerRadius(5.0)
+            .padding(.bottom, 20)
+    }
+}
+
+
+
+struct submitButton: View {
+    @Binding var loggedIn: Bool
+    var body: some View {
+        Button(action: {print("Submit button pressed!")
+            loggedIn = true
+            
+        
+            
+            
+        }) {
+            Text("Sign-Up")
+                .padding()
+                .frame(width: 220, height: 60)
+                .foregroundColor(.black)
+                .background(Color.init(white: 0.85))
+                .cornerRadius(5.0)
+        }
+    }
+}

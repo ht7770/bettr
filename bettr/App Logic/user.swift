@@ -11,12 +11,10 @@ class users {
     
     var firstName : String
     var lastName : String
-    var DOB : Date
     
-    init(firstName: String, lastName: String, DOB : Date){
+    init(firstName: String, lastName: String){
         self.firstName = firstName
         self.lastName = lastName
-        self.DOB = DOB
     }
     
 }

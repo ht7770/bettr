@@ -9,16 +9,25 @@ import SwiftUI
 
 struct WelcomeMessage: View {
     
-    var name: String
+    var name: String = "Henry"
     
     var body: some View {
-        HStack {
-            Text("Good Morning, \(name)")
-                .padding()
-                .font(.system(size:56, weight: .bold, design: .rounded))
-                .foregroundColor(.white)
-            Spacer()
+        ZStack {
+            backgroundColour()
+            HStack {
+                Text("Good Morning, \(name)")
+                    .padding()
+                    .font(.system(size:56, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                Spacer()
+            }
         }
+    }
+}
+
+struct welcome_preview: PreviewProvider {
+    static var previews: some View {
+        WelcomeMessage()
     }
 }
 
