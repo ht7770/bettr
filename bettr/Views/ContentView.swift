@@ -8,21 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    //var newUser: users
-    
     var body: some View {
-        ZStack{
-            backgroundColour()
-            VStack{
-                WelcomeMessage()
-                Spacer()
-                
-                }
-             
-            }
+        TaskList()
         }
-
-            
+    
     }
+
 

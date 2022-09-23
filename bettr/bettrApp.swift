@@ -6,21 +6,14 @@
 //
 
 import SwiftUI
+import Foundation
+
 
 @main
 struct bettrApp: App {
-    
-    @State var loggedIn: Bool = false
-    
     var body: some Scene {
         WindowGroup {
-            
-            if loggedIn{
-                ContentView()
-            }
-            else{
-                SignUp(loggedIn: $loggedIn)
-            }
+            ContentView()
         }
     }
 }

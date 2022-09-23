@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		697CAEA62780F0670096D3AC /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697CAEA52780F0670096D3AC /* user.swift */; };
-		697CAEA8278124BF0096D3AC /* WelcomeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697CAEA7278124BF0096D3AC /* WelcomeMessage.swift */; };
+		6950F32A28DC803300C78CE8 /* userDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32928DC803300C78CE8 /* userDefaultExtension.swift */; };
+		6950F32C28DDC33000C78CE8 /* task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32B28DDC33000C78CE8 /* task.swift */; };
+		6950F32E28DDC6B100C78CE8 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32D28DDC6B100C78CE8 /* TaskRow.swift */; };
+		6950F33028DDC74300C78CE8 /* TaskModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32F28DDC74300C78CE8 /* TaskModelData.swift */; };
+		6950F33A28DDCFDB00C78CE8 /* taskData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6950F33928DDCFDB00C78CE8 /* taskData.json */; };
+		6950F33D28DDFB6500C78CE8 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F33C28DDFB6500C78CE8 /* TaskList.swift */; };
+		6950F33F28DE038200C78CE8 /* TaskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F33E28DE038200C78CE8 /* TaskDetail.swift */; };
 		697CAEAB2781282D0096D3AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */; };
-		69D8D0B42783A05A009BE146 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8D0B32783A05A009BE146 /* SignUp.swift */; };
 		69D8D0B62783A22A009BE146 /* backgroundColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8D0B52783A22A009BE146 /* backgroundColour.swift */; };
 		69EB6863277F5E540010F224 /* bettrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EB6862277F5E540010F224 /* bettrApp.swift */; };
 		69EB6865277F5E540010F224 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EB6864277F5E540010F224 /* ContentView.swift */; };
@@ -39,11 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		697CAEA52780F0670096D3AC /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
-		697CAEA7278124BF0096D3AC /* WelcomeMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeMessage.swift; sourceTree = "<group>"; };
+		6950F32928DC803300C78CE8 /* userDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDefaultExtension.swift; sourceTree = "<group>"; };
+		6950F32B28DDC33000C78CE8 /* task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task.swift; sourceTree = "<group>"; };
+		6950F32D28DDC6B100C78CE8 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		6950F32F28DDC74300C78CE8 /* TaskModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModelData.swift; sourceTree = "<group>"; };
+		6950F33928DDCFDB00C78CE8 /* taskData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taskData.json; sourceTree = "<group>"; };
+		6950F33C28DDFB6500C78CE8 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		6950F33E28DE038200C78CE8 /* TaskDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetail.swift; sourceTree = "<group>"; };
 		697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		697CAEAC278131BB0096D3AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		69D8D0B32783A05A009BE146 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		69D8D0B52783A22A009BE146 /* backgroundColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundColour.swift; sourceTree = "<group>"; };
 		69EB685F277F5E540010F224 /* bettr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bettr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69EB6862277F5E540010F224 /* bettrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bettrApp.swift; sourceTree = "<group>"; };
@@ -82,10 +90,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6950F33228DDC8DD00C78CE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6950F33928DDCFDB00C78CE8 /* taskData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6950F34028DE59EF00C78CE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6950F32B28DDC33000C78CE8 /* task.swift */,
+				6950F32F28DDC74300C78CE8 /* TaskModelData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		695873612844417E00130E8C /* App Logic */ = {
 			isa = PBXGroup;
 			children = (
-				697CAEA52780F0670096D3AC /* user.swift */,
+				6950F34028DE59EF00C78CE8 /* Models */,
+				6950F32928DC803300C78CE8 /* userDefaultExtension.swift */,
 			);
 			path = "App Logic";
 			sourceTree = "<group>";
@@ -93,11 +119,12 @@
 		697CAEA9278124D50096D3AC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				697CAEA7278124BF0096D3AC /* WelcomeMessage.swift */,
 				69EB6864277F5E540010F224 /* ContentView.swift */,
-				697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */,
-				69D8D0B32783A05A009BE146 /* SignUp.swift */,
 				69D8D0B52783A22A009BE146 /* backgroundColour.swift */,
+				697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */,
+				6950F32D28DDC6B100C78CE8 /* TaskRow.swift */,
+				6950F33C28DDFB6500C78CE8 /* TaskList.swift */,
+				6950F33E28DE038200C78CE8 /* TaskDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				69EB6861277F5E540010F224 /* bettr */,
+				6950F33228DDC8DD00C78CE8 /* Resources */,
 				69EB6872277F5E570010F224 /* bettrTests */,
 				69EB687C277F5E570010F224 /* bettrUITests */,
 				69EB6860277F5E540010F224 /* Products */,
@@ -126,10 +154,10 @@
 			isa = PBXGroup;
 			children = (
 				697CAEAC278131BB0096D3AC /* Info.plist */,
-				697CAEA9278124D50096D3AC /* Views */,
-				69EB6862277F5E540010F224 /* bettrApp.swift */,
 				69EB6866277F5E570010F224 /* Assets.xcassets */,
 				69EB6868277F5E570010F224 /* Preview Content */,
+				69EB6862277F5E540010F224 /* bettrApp.swift */,
+				697CAEA9278124D50096D3AC /* Views */,
 				695873612844417E00130E8C /* App Logic */,
 			);
 			path = bettr;
@@ -266,6 +294,7 @@
 			files = (
 				697CAEAB2781282D0096D3AC /* LaunchScreen.storyboard in Resources */,
 				69EB686A277F5E570010F224 /* Preview Assets.xcassets in Resources */,
+				6950F33A28DDCFDB00C78CE8 /* taskData.json in Resources */,
 				69EB6867277F5E570010F224 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,12 +320,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				697CAEA8278124BF0096D3AC /* WelcomeMessage.swift in Sources */,
+				6950F32A28DC803300C78CE8 /* userDefaultExtension.swift in Sources */,
 				69EB6865277F5E540010F224 /* ContentView.swift in Sources */,
 				69EB6863277F5E540010F224 /* bettrApp.swift in Sources */,
+				6950F32E28DDC6B100C78CE8 /* TaskRow.swift in Sources */,
+				6950F32C28DDC33000C78CE8 /* task.swift in Sources */,
+				6950F33F28DE038200C78CE8 /* TaskDetail.swift in Sources */,
 				69D8D0B62783A22A009BE146 /* backgroundColour.swift in Sources */,
-				697CAEA62780F0670096D3AC /* user.swift in Sources */,
-				69D8D0B42783A05A009BE146 /* SignUp.swift in Sources */,
+				6950F33D28DDFB6500C78CE8 /* TaskList.swift in Sources */,
+				6950F33028DDC74300C78CE8 /* TaskModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,10 +496,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -496,10 +529,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

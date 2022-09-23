@@ -9,7 +9,9 @@ import SwiftUI
 
 struct WelcomeMessage: View {
     
-    var name: String = "Henry"
+    var name: String = ""
+    
+    @Binding var user: users
     
     var body: some View {
         ZStack {
@@ -27,7 +29,7 @@ struct WelcomeMessage: View {
 
 struct welcome_preview: PreviewProvider {
     static var previews: some View {
-        WelcomeMessage()
+        WelcomeMessage(user: $user)
     }
 }
 
