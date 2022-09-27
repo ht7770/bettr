@@ -92,6 +92,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6908FACC28E32DC5003273A3 /* Helper Views */ = {
+			isa = PBXGroup;
+			children = (
+				6950F32D28DDC6B100C78CE8 /* TaskRow.swift */,
+				6908FACA28E2F808003273A3 /* addTaskButton.swift */,
+				69D8D0B52783A22A009BE146 /* backgroundColour.swift */,
+				697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */,
+			);
+			path = "Helper Views";
+			sourceTree = "<group>";
+		};
+		6908FACD28E32DFE003273A3 /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				6950F33C28DDFB6500C78CE8 /* TaskList.swift */,
+				6950F33E28DE038200C78CE8 /* TaskDetail.swift */,
+			);
+			path = "Main Views";
+			sourceTree = "<group>";
+		};
 		6950F33228DDC8DD00C78CE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,12 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				69EB6864277F5E540010F224 /* ContentView.swift */,
-				69D8D0B52783A22A009BE146 /* backgroundColour.swift */,
-				697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */,
-				6950F32D28DDC6B100C78CE8 /* TaskRow.swift */,
-				6908FACA28E2F808003273A3 /* addTaskButton.swift */,
-				6950F33C28DDFB6500C78CE8 /* TaskList.swift */,
-				6950F33E28DE038200C78CE8 /* TaskDetail.swift */,
+				6908FACC28E32DC5003273A3 /* Helper Views */,
+				6908FACD28E32DFE003273A3 /* Main Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
