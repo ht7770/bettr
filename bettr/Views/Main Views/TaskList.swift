@@ -28,7 +28,7 @@ struct TaskList: View {
 
                 ForEach(filteredTasks) { task in
                     NavigationLink {
-                        TaskDetail()
+                        TaskDetail(task: task)
                     } label: {
                         TaskRow(task: task)
                     }
