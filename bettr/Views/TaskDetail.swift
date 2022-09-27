@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TaskDetail: View {
+    
     var body: some View {
         Text("Task Detail Page!")
     }

@@ -11,9 +11,12 @@ import Foundation
 
 @main
 struct bettrApp: App {
+    
+    @StateObject private var taskModelData = TaskModelData()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(taskModelData)
         }
     }
 }

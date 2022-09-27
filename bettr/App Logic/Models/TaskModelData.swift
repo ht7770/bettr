@@ -6,14 +6,26 @@
 //
 
 import Foundation
-
+import Combine
 
 // Create array of tasks
 
-var initTask: Task = Task(id: 1001, title: "Your First Task", state: false, description: "This is your first task, you can add other tasks or delete this one", dateSet: Date(), dateComplete: Date())
-var secondTask: Task = Task(id: 1002, title: "Your Second Task", state: false, description: "This is your Second task, you can add other tasks or delete this one", dateSet: Date(), dateComplete: Date())
-var tasks: [Task] = [initTask, secondTask]
+final class TaskModelData: ObservableObject{
+    
+    @Published var tasks: [Task] = addModelPlaceholder()
+    
+}
 
+func addModelPlaceholder() -> [Task]{
+    let initTask: Task = Task(id: 1001, title: "Your First Task", state: false, description: "This is your first task, you can add other tasks or delete this one", dateSet: Date(), dateComplete: Date())
+    let secondTask: Task = Task(id: 1002, title: "Your Second Task", state: true, description: "This is your Second task, you can add other tasks or delete this one", dateSet: Date(), dateComplete: Date())
+    
+    var initTasks: [Task] = []
+    initTasks.append(initTask)
+    initTasks.append(secondTask)
+    
+    return initTasks
+}
 
 
 func load<T: Decodable>(_ filename: String) -> T {

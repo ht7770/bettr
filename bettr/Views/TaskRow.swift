@@ -35,6 +35,7 @@ struct TaskRow: View {
     }
 
 struct TaskRow_Previews: PreviewProvider {
+    static var tasks = TaskModelData().tasks
     static var previews: some View {
         Group {
             TaskRow(task: tasks[0])

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6908FACB28E2F808003273A3 /* addTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908FACA28E2F808003273A3 /* addTaskButton.swift */; };
 		6950F32A28DC803300C78CE8 /* userDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32928DC803300C78CE8 /* userDefaultExtension.swift */; };
 		6950F32C28DDC33000C78CE8 /* task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32B28DDC33000C78CE8 /* task.swift */; };
 		6950F32E28DDC6B100C78CE8 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32D28DDC6B100C78CE8 /* TaskRow.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6908FACA28E2F808003273A3 /* addTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskButton.swift; sourceTree = "<group>"; };
 		6950F32928DC803300C78CE8 /* userDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDefaultExtension.swift; sourceTree = "<group>"; };
 		6950F32B28DDC33000C78CE8 /* task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task.swift; sourceTree = "<group>"; };
 		6950F32D28DDC6B100C78CE8 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				69D8D0B52783A22A009BE146 /* backgroundColour.swift */,
 				697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */,
 				6950F32D28DDC6B100C78CE8 /* TaskRow.swift */,
+				6908FACA28E2F808003273A3 /* addTaskButton.swift */,
 				6950F33C28DDFB6500C78CE8 /* TaskList.swift */,
 				6950F33E28DE038200C78CE8 /* TaskDetail.swift */,
 			);
@@ -320,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6908FACB28E2F808003273A3 /* addTaskButton.swift in Sources */,
 				6950F32A28DC803300C78CE8 /* userDefaultExtension.swift in Sources */,
 				69EB6865277F5E540010F224 /* ContentView.swift in Sources */,
 				69EB6863277F5E540010F224 /* bettrApp.swift in Sources */,
@@ -510,7 +514,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -543,7 +547,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
