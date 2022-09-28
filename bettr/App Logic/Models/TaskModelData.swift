@@ -27,6 +27,10 @@ final class TaskModelData: ObservableObject{
         print("Removing task: \(taskToBeRemoved)")
         tasks.remove(at: taskindex)
     }
+    
+    func addTask(taskToBeAdded: Task){
+        tasks.append(taskToBeAdded)
+    }
 }
 
 func addModelPlaceholder() -> [Task]{
