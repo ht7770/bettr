@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-// Create array of tasks
 
 final class TaskModelData: ObservableObject{
     
