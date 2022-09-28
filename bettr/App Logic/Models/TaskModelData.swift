@@ -16,14 +16,14 @@ final class TaskModelData: ObservableObject{
     
     
     func removeTask(at offsets: IndexSet){
-        var taskToBeRemoved = tasks[offsets[offsets.startIndex]].title
+        let taskToBeRemoved = tasks[offsets[offsets.startIndex]].title
         print("Removing task: \(taskToBeRemoved)")
         tasks.remove(atOffsets: offsets)
         
     }
     
     func removeTask(taskindex: Int){
-        var taskToBeRemoved = tasks[taskindex].title
+        let taskToBeRemoved = tasks[taskindex].title
         print("Removing task: \(taskToBeRemoved)")
         tasks.remove(at: taskindex)
     }

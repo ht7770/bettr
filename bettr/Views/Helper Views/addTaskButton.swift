@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct addTaskButton: View {
+    
+    @State private var showPopover = false
+    
     var body: some View {
         HStack {
             Button(action: addTask) {
@@ -20,10 +23,15 @@ struct addTaskButton: View {
             }
             Spacer()
         }
+        .popover(isPresented: $showPopover){
+            Text("Testing Popover!")
+        }
     }
     
     func addTask(){
         print("add task button tapped")
+        showPopover = true
+        
     }
 }
 
