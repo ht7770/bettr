@@ -17,12 +17,9 @@ struct addTaskButton: View {
                 }
                 .foregroundColor(.white)
                 .bold()
-         
             }
             Spacer()
         }
-        
-
     }
     
     func addTask(){

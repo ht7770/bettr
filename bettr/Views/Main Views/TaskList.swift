@@ -33,6 +33,7 @@ struct TaskList: View {
                         TaskRow(task: task)
                     }
                 }
+                .onDelete(perform: taskModelData.removeTask(at:))
     
             }
             .navigationBarItems(trailing: addTaskButton())
