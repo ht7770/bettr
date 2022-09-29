@@ -13,6 +13,7 @@ import Foundation
 struct bettrApp: App {
     
     @StateObject private var taskModelData = TaskModelData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

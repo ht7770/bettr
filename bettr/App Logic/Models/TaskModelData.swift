@@ -30,6 +30,18 @@ final class TaskModelData: ObservableObject{
     func addTask(taskToBeAdded: Task){
         tasks.append(taskToBeAdded)
     }
+    
+    func getNextID() -> Int{
+        if let currentTask = tasks.last {
+            let nextID = currentTask.id + 1
+            print("Assigning ID: \(nextID)")
+            return nextID
+        } else {
+            let nextID = 1001
+            print("Tasks array is empty, assigning first ID: \(nextID)")
+            return nextID
+        }
+    }
 }
 
 func addModelPlaceholder() -> [Task]{
