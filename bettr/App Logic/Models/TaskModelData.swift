@@ -46,8 +46,8 @@ final class TaskModelData: ObservableObject{
 }
 
 func addModelPlaceholder() -> [Task]{
-    let initTask: Task = Task(id: 1001, title: "Your First Task", state: false, description: "This is your first task, you can add other tasks or delete this one", dateSet: Date(), dateComplete: Date())
-    let secondTask: Task = Task(id: 1002, title: "Your Second Task", state: true, description: "This is your Second task, you can add other tasks or delete this one", dateSet: Date(), dateComplete: Date())
+    let initTask: Task = Task(id: 1001, title: "Your First Task", state: false, description: "This is your first task, you can add other tasks or delete this one", dateSet: Date(), dateState: true)
+    let secondTask: Task = Task(id: 1002, title: "Your Second Task", state: true, description: "This is your Second task, you can add other tasks or delete this one", dateSet: Date(), dateState: true)
     
     var initTasks: [Task] = []
     initTasks.append(initTask)

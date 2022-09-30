@@ -14,7 +14,7 @@ struct Task: Hashable, Codable, Identifiable{
     var state: Bool
     var description: String
     var dateSet: Date
-    var dateComplete: Date
+    var dateState: Bool
     
     var imageName: String = "aqi.medium"
     var image: Image{
