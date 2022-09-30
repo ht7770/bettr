@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddTaskPopover: View {
     
+    @Binding var showPopover: Bool
+    
     @State private var taskTitle: String = ""
     @State private var taskDesc: String = ""
     @State private var datePick: Bool = true
@@ -32,15 +34,21 @@ struct AddTaskPopover: View {
                     }
                     .pickerStyle(.segmented)
                 }
+                
+                Section{
+                    Button(action: addTask){
+                        Text("Add New Task")
+                    }
+                }
 
             }
         }
         
     }
-}
-
-struct AddTaskPopover_Previews: PreviewProvider {
-    static var previews: some View {
-        AddTaskPopover()
+    
+    func addTask(){
+        print("submit new task button pressed")
+        showPopover.toggle()
+        
     }
 }

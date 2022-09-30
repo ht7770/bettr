@@ -24,7 +24,7 @@ struct addTaskButton: View {
             Spacer()
         }
         .popover(isPresented: $showPopover){
-            AddTaskPopover()
+            AddTaskPopover(showPopover: $showPopover)
         }
     }
     
