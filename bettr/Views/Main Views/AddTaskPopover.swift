@@ -11,32 +11,29 @@ struct AddTaskPopover: View {
     
     @State private var taskTitle: String = ""
     @State private var taskDesc: String = ""
+    @State private var datePick: Bool = true
     
     var body: some View {
-        VStack {
-            VStack(alignment: .leading){
-                Text("Task title:")
-                    .font(.callout)
-                    .bold()
+        
+        ZStack {
+            Color("newgrey")
+                .edgesIgnoringSafeArea(.all)
+            Form {
+                Section(header: Text("TASK DETAILS")) {
+                    TextField("Task Title", text: $taskTitle)
+                    TextField("Task Description", text: $taskDesc)
+                }
                 
-                TextField("Enter title", text: $taskTitle)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Section(header: Text("TASK DAY"))  {
+                    Picker("Date", selection: $datePick){
+                        Text("Today").tag(true)
+                        Text("Tomorrow").tag(false)
+                        
+                    }
+                    .pickerStyle(.segmented)
+                }
+
             }
-            .padding()
-            VStack(alignment: .leading){
-                Text("Task Description:")
-                    .font(.callout)
-                    .bold()
-                
-                TextEditor(text: $taskDesc)
-                    .background(Color.gray)
-                    .frame(minWidth: 0, minHeight: 0, maxHeight: 200)
-                    .cornerRadius(10)
-                
-    
-                
-            }
-            .padding()
         }
         
     }
