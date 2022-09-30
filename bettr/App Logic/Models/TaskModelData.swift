@@ -28,6 +28,7 @@ final class TaskModelData: ObservableObject{
     }
     
     func addTask(taskToBeAdded: Task){
+        print("Adding task to list: \(taskToBeAdded.title)")
         tasks.append(taskToBeAdded)
     }
     

@@ -9,11 +9,15 @@ import SwiftUI
 
 struct AddTaskPopover: View {
     
+    @EnvironmentObject var taskModelData: TaskModelData
+    
     @Binding var showPopover: Bool
     
     @State private var taskTitle: String = ""
     @State private var taskDesc: String = ""
     @State private var datePick: Bool = true
+    
+    @State private var showingAlert: Bool = false
     
     var body: some View {
         
@@ -39,6 +43,9 @@ struct AddTaskPopover: View {
                     Button(action: addTask){
                         Text("Add New Task")
                     }
+                    .alert("Please fill out all fields", isPresented: $showingAlert){
+                        Button("OK", role: .cancel){}
+                    }
                 }
 
             }
@@ -47,8 +54,16 @@ struct AddTaskPopover: View {
     }
     
     func addTask(){
-        print("submit new task button pressed")
-        showPopover.toggle()
+        print("popover add task button pressed")
+        if(taskTitle == "" || taskDesc == "" ){
+            showingAlert = true
+        }
+        else{
+            let newID: Int = taskModelData.getNextID()
+            let newTask: Task = Task(id: newID, title: taskTitle, state: false, description: taskDesc, dateSet: Date(), dateState: datePick)
+            taskModelData.addTask(taskToBeAdded: newTask)
+            showPopover.toggle()
+        }
         
     }
 }
