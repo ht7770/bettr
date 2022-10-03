@@ -11,7 +11,7 @@ import Combine
 
 final class TaskModelData: ObservableObject{
     
-    @Published var tasks: [Task] = addModelPlaceholder()
+    @Published var tasks: [Task] = loadTaskModel()
     
     
     func removeTask(at offsets: IndexSet){
@@ -44,6 +44,9 @@ final class TaskModelData: ObservableObject{
         }
     }
     
+    func saveTaskModel(){
+        UserDefaults.standard.storeCodable(tasks, key: "taskModel")
+    }
     
 }
 
@@ -59,4 +62,14 @@ func addModelPlaceholder() -> [Task]{
 }
 
 
-
+func loadTaskModel() -> [Task]{
+    var optionalLoadedTasks: [Task]? = UserDefaults.standard.retrieveCodable(for: "taskModel", castTo: [Task].self)
+    
+    if optionalLoadedTasks != nil{
+        var loadedTasks: [Task] = optionalLoadedTasks!
+        return loadedTasks
+    }
+    else{
+        return addModelPlaceholder()
+    }
+}

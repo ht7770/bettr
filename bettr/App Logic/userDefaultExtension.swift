@@ -17,7 +17,7 @@ extension UserDefaults{
             }
         }
     
-    func retrieveCodable<T: Codable>(for key: String) -> T? {
+    func retrieveCodable<T: Codable>(for key: String, castTo type: T.Type) -> T? {
     do {
     guard let data = UserDefaults.standard.data(forKey: key) else {
     return nil
