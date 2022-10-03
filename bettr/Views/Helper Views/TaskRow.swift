@@ -8,37 +8,50 @@
 import SwiftUI
 
 struct TaskRow: View {
+    
+    @EnvironmentObject var taskModelData: TaskModelData
+    
+    @State private var showPopover: Bool = false
+    
+    
     var task: Task
     
+    var taskIndex: Int {
+        
+        taskModelData.tasks.firstIndex(where: { $0.id == task.id})!
+    }
+    
     var body: some View {
-            HStack {
-                task.image
-                    .resizable()
-                    .offset(x: 10)
-                    .frame(width: 30, height: 30)
-                VStack(alignment: .leading) {
-                    Text(task.title)
-                        .bold()
-
-                    HStack {
-                        Text(task.getState())
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+        HStack {
+            Button(action: editTask){
+                HStack {
+                    task.image
+                        .resizable()
+                        .offset(x: 10)
+                        .frame(width: 30, height: 30)
+                    VStack(alignment: .leading) {
+                        Text(task.title)
+                            .bold()
                         
+                        HStack {
+                            Text(task.getState())
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        
+                    }
+                    .offset(x: 10)
                 }
-                .offset(x: 10)
-                
-                Spacer()
+            }
+            Spacer()
+            if !taskModelData.tasks.isEmpty{
+                CompleteToggleButton(isComplete: $taskModelData.tasks[taskIndex].state)
             }
         }
     }
-
-struct TaskRow_Previews: PreviewProvider {
-    static var tasks = TaskModelData().tasks
-    static var previews: some View {
-        Group {
-            TaskRow(task: tasks[0])
-        }
+    
+    func editTask(){
+        print("edit task button pressed")
     }
 }
+

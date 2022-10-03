@@ -27,11 +27,7 @@ struct TaskList: View {
                 }
 
                 ForEach(filteredTasks) { task in
-                    NavigationLink {
-                        TaskDetail(task: task)
-                    } label: {
                         TaskRow(task: task)
-                    }
                 }
                 .onDelete(perform: taskModelData.removeTask(at:))
     

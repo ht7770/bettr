@@ -18,6 +18,7 @@ final class TaskModelData: ObservableObject{
         let taskToBeRemoved = tasks[offsets[offsets.startIndex]].title
         print("Removing task: \(taskToBeRemoved)")
         tasks.remove(atOffsets: offsets)
+        saveTaskModel()
         
     }
     
@@ -25,11 +26,13 @@ final class TaskModelData: ObservableObject{
         let taskToBeRemoved = tasks[taskindex].title
         print("Removing task: \(taskToBeRemoved)")
         tasks.remove(at: taskindex)
+        saveTaskModel()
     }
     
     func addTask(taskToBeAdded: Task){
         print("Adding task to list: \(taskToBeAdded.title)")
         tasks.append(taskToBeAdded)
+        saveTaskModel()
     }
     
     func getNextID() -> Int{

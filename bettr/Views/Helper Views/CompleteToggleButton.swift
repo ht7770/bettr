@@ -13,11 +13,12 @@ struct CompleteToggleButton: View {
     
     var body: some View {
         
-        Button {
-            isComplete.toggle()
-        } label: {
-            Label("Toggle Complete", systemImage: isComplete ? "circlebadge" : "circlebadge.fill")
+        Button(action: {}){
+            Label("Toggle Complete", systemImage: isComplete ? "circlebadge.fill" : "circlebadge")
                 .labelStyle(.iconOnly)
+        }
+        .onTapGesture {
+            isComplete.toggle()
         }
     }
 }
