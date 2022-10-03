@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct TaskRow: View {
-    
     @EnvironmentObject var taskModelData: TaskModelData
     
     @State private var showPopover: Bool = false
-    
     
     var task: Task
     
     var taskIndex: Int {
         
-        taskModelData.tasks.firstIndex(where: { $0.id == task.id})!
+        if (taskModelData.tasks.firstIndex(where: { $0.id == task.id})) == nil{
+            return 0
+        } else {
+            return taskModelData.tasks.firstIndex(where: { $0.id == task.id})!
+        }
     }
     
     var body: some View {
@@ -38,15 +40,17 @@ struct TaskRow: View {
                         }
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                        
                     }
                     .offset(x: 10)
                 }
             }
             .popover(isPresented: $showPopover){
-                EditTaskPopover(showPopover: $showPopover, taskIndex: taskIndex)
+                if !taskModelData.tasks.isEmpty{
+                    EditTaskPopover(showPopover: $showPopover, taskIndex: taskIndex)
+                }
             }
             Spacer()
+            
             if !taskModelData.tasks.isEmpty{
                 CompleteToggleButton(isComplete: $taskModelData.tasks[taskIndex].state)
             }

@@ -26,7 +26,7 @@ struct TaskList: View {
                     
                 }
 
-                ForEach(filteredTasks) { task in
+                ForEach(filteredTasks, id:\.self) { task in
                         TaskRow(task: task)
                 }
                 .onDelete(perform: taskModelData.removeTask(at:))

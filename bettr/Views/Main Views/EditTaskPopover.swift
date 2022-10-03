@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct EditTaskPopover: View {
-    
     @EnvironmentObject var taskModelData: TaskModelData
+    
     @Binding var showPopover: Bool
     
     @State private var showingAlert: Bool = false
     
     var taskIndex: Int
-    
     
     var body: some View {
         
@@ -45,12 +44,8 @@ struct EditTaskPopover: View {
                         Button("OK", role: .cancel){}
                     }
                 }
-
             }
         }
-        
-       
-        
     }
     
     func editTask(){
