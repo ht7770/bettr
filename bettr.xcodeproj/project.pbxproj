@@ -10,6 +10,7 @@
 		6908FACB28E2F808003273A3 /* addTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908FACA28E2F808003273A3 /* addTaskButton.swift */; };
 		6908FACF28E33912003273A3 /* CompleteToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908FACE28E33912003273A3 /* CompleteToggleButton.swift */; };
 		6908FAD128E46326003273A3 /* AddTaskPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908FAD028E46326003273A3 /* AddTaskPopover.swift */; };
+		6908FAD528EB39FF003273A3 /* EditTaskPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908FAD428EB39FE003273A3 /* EditTaskPopover.swift */; };
 		6950F32A28DC803300C78CE8 /* userDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32928DC803300C78CE8 /* userDefaultExtension.swift */; };
 		6950F32C28DDC33000C78CE8 /* task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32B28DDC33000C78CE8 /* task.swift */; };
 		6950F32E28DDC6B100C78CE8 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F32D28DDC6B100C78CE8 /* TaskRow.swift */; };
@@ -49,6 +50,7 @@
 		6908FACA28E2F808003273A3 /* addTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskButton.swift; sourceTree = "<group>"; };
 		6908FACE28E33912003273A3 /* CompleteToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToggleButton.swift; sourceTree = "<group>"; };
 		6908FAD028E46326003273A3 /* AddTaskPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPopover.swift; sourceTree = "<group>"; };
+		6908FAD428EB39FE003273A3 /* EditTaskPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskPopover.swift; sourceTree = "<group>"; };
 		6950F32928DC803300C78CE8 /* userDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDefaultExtension.swift; sourceTree = "<group>"; };
 		6950F32B28DDC33000C78CE8 /* task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task.swift; sourceTree = "<group>"; };
 		6950F32D28DDC6B100C78CE8 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				6950F33C28DDFB6500C78CE8 /* TaskList.swift */,
 				6950F33E28DE038200C78CE8 /* TaskDetail.swift */,
 				6908FAD028E46326003273A3 /* AddTaskPopover.swift */,
+				6908FAD428EB39FE003273A3 /* EditTaskPopover.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				6950F32E28DDC6B100C78CE8 /* TaskRow.swift in Sources */,
 				6950F32C28DDC33000C78CE8 /* task.swift in Sources */,
 				6950F33F28DE038200C78CE8 /* TaskDetail.swift in Sources */,
+				6908FAD528EB39FF003273A3 /* EditTaskPopover.swift in Sources */,
 				69D8D0B62783A22A009BE146 /* backgroundColour.swift in Sources */,
 				6950F33D28DDFB6500C78CE8 /* TaskList.swift in Sources */,
 				6908FAD128E46326003273A3 /* AddTaskPopover.swift in Sources */,

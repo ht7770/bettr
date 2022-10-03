@@ -43,6 +43,9 @@ struct TaskRow: View {
                     .offset(x: 10)
                 }
             }
+            .popover(isPresented: $showPopover){
+                EditTaskPopover(showPopover: $showPopover, taskIndex: taskIndex)
+            }
             Spacer()
             if !taskModelData.tasks.isEmpty{
                 CompleteToggleButton(isComplete: $taskModelData.tasks[taskIndex].state)
@@ -52,6 +55,7 @@ struct TaskRow: View {
     
     func editTask(){
         print("edit task button pressed")
+        showPopover = true
     }
 }
 
