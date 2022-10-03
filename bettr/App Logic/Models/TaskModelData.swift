@@ -52,6 +52,14 @@ final class TaskModelData: ObservableObject{
         UserDefaults.standard.storeCodable(tasks, key: "taskModel")
     }
     
+    func updateTask(taskIndex: Int, taskTitle: String, taskDesc: String, datePick: Bool){
+        print("Updating Task: \(tasks[taskIndex].id)")
+        tasks[taskIndex].title = taskTitle
+        tasks[taskIndex].description = taskDesc
+        tasks[taskIndex].dateState = datePick
+        saveTaskModel()
+    }
+    
 }
 
 func addModelPlaceholder() -> [Task]{
