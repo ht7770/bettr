@@ -45,6 +45,7 @@ final class TaskModelData: ObservableObject{
     }
     
     func saveTaskModel(){
+        print("Saving tasks model...")
         UserDefaults.standard.storeCodable(tasks, key: "taskModel")
     }
     
@@ -63,13 +64,15 @@ func addModelPlaceholder() -> [Task]{
 
 
 func loadTaskModel() -> [Task]{
-    var optionalLoadedTasks: [Task]? = UserDefaults.standard.retrieveCodable(for: "taskModel", castTo: [Task].self)
+    let optionalLoadedTasks: [Task]? = UserDefaults.standard.retrieveCodable(for: "taskModel", castTo: [Task].self)
     
     if optionalLoadedTasks != nil{
-        var loadedTasks: [Task] = optionalLoadedTasks!
+        print("Found a tasks model! loading...")
+        let loadedTasks: [Task] = optionalLoadedTasks!
         return loadedTasks
     }
     else{
+        print("Couldn't find any stored tasks model, starting with init tasks")
         return addModelPlaceholder()
     }
 }
