@@ -11,11 +11,25 @@ struct CompleteToggleButton: View {
     
     @Binding var isComplete: Bool
     
+    
     var body: some View {
         
         Button(action: {}){
-            Label("Toggle Complete", systemImage: isComplete ? "circlebadge.fill" : "circlebadge")
-                .labelStyle(.iconOnly)
+        label: do {
+                switch isComplete{
+                case true:
+                    Image(systemName: "circlebadge.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                    
+                default:
+                    Image(systemName: "circlebadge")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                }
+        }
+        
+                
         }
         .onTapGesture {
             isComplete.toggle()

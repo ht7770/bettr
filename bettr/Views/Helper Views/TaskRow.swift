@@ -29,7 +29,6 @@ struct TaskRow: View {
                 HStack {
                     task.image
                         .resizable()
-                        .offset(x: 10)
                         .frame(width: 30, height: 30)
                     VStack(alignment: .leading) {
                         Text(task.title)
@@ -41,14 +40,13 @@ struct TaskRow: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     }
-                    .offset(x: 10)
                 }
             }
-            .popover(isPresented: $showPopover){
-                if !taskModelData.tasks.isEmpty{
-                    EditTaskPopover(showPopover: $showPopover, taskIndex: taskIndex)
-                }
-            }
+            //.popover(isPresented: $showPopover){
+            //    if !taskModelData.tasks.isEmpty{
+            //        EditTaskPopover(showPopover: $showPopover, taskIndex: taskIndex)
+            //    }
+           // }
             Spacer()
             
             if !taskModelData.tasks.isEmpty{
