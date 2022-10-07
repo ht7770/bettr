@@ -16,12 +16,12 @@ struct Task: Hashable, Codable, Identifiable{
     var dateSet: Date
     var dateState: Bool
     
-    var category: Category
+    var taskCategory: Category
        
     enum Category: String, CaseIterable, Codable{
-        case fitness = "fitness"
-        case work = "work"
-        case education = "education"
+        case fitness = "Fitness"
+        case work = "Work"
+        case education = "Education"
     }
     
     var imageName: String = "aqi.medium"

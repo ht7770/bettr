@@ -16,6 +16,7 @@ struct AddTaskPopover: View {
     @State private var taskTitle: String = ""
     @State private var taskDesc: String = ""
     @State private var datePick: Bool = true
+    @State private var taskType: Task.Category = .fitness
     
     @State private var showingAlert: Bool = false
     
@@ -25,6 +26,13 @@ struct AddTaskPopover: View {
             Color("newgrey")
                 .edgesIgnoringSafeArea(.all)
             Form {
+                Section{
+                    Picker("Type", selection: $taskType){
+                        Text("Fitness").tag(Task.Category.fitness)
+                        Text("Work").tag(Task.Category.work)
+                        Text("Education").tag(Task.Category.education)
+                    }
+                }
                 Section(header: Text("TASK DETAILS")) {
                     TextField("Task Title", text: $taskTitle)
                     TextField("Task Description", text: $taskDesc)
@@ -60,7 +68,7 @@ struct AddTaskPopover: View {
         }
         else{
             let newID: Int = taskModelData.getNextID()
-            let newTask: Task = Task(id: newID, title: taskTitle, state: false, description: taskDesc, dateSet: Date(), dateState: datePick)
+            let newTask: Task = Task(id: newID, title: taskTitle, state: false, description: taskDesc, dateSet: Date(), dateState: datePick, taskCategory: taskType)
             taskModelData.addTask(taskToBeAdded: newTask)
             showPopover.toggle()
         }
