@@ -25,37 +25,50 @@ struct AddTaskPopover: View {
         ZStack {
             Color("newgrey")
                 .edgesIgnoringSafeArea(.all)
-            Form {
-                Section{
-                    Picker("Type", selection: $taskType){
-                        Text("Health").tag(Task.Category.health)
-                        Text("Work").tag(Task.Category.work)
-                        Text("Learning").tag(Task.Category.learning)
-                    }
-                }
-                Section(header: Text("TASK DETAILS")) {
-                    TextField("Task Title", text: $taskTitle)
-                    TextField("Task Description", text: $taskDesc)
-                }
+            VStack{
+                Spacer(minLength: 50)
                 
-                Section(header: Text("TASK DAY"))  {
-                    Picker("Date", selection: $datePick){
-                        Text("Today").tag(true)
-                        Text("Tomorrow").tag(false)
-                        
-                    }
-                    .pickerStyle(.segmented)
+                ZStack{
+                    Image(systemName: taskType.rawValue)
+                        .font(.system(size: 50))
+                    
+                    Circle()
+                        .stroke(Color(""), lineWidth: 2)
+                        .frame(width: 100, height: 100)
                 }
-                
-                Section{
-                    Button(action: addTask){
-                        Text("Add New Task")
+                Spacer()
+                Form {
+                    Section{
+                        Picker("Type", selection: $taskType){
+                            Text("Health").tag(Task.Category.health)
+                            Text("Work").tag(Task.Category.work)
+                            Text("Learning").tag(Task.Category.learning)
+                        }
                     }
-                    .alert("Please fill out all fields", isPresented: $showingAlert){
-                        Button("OK", role: .cancel){}
+                    Section(header: Text("TASK DETAILS")) {
+                        TextField("Task Title", text: $taskTitle)
+                        TextField("Task Description", text: $taskDesc)
                     }
+                    
+                    Section(header: Text("TASK DAY"))  {
+                        Picker("Date", selection: $datePick){
+                            Text("Today").tag(true)
+                            Text("Tomorrow").tag(false)
+                            
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    
+                    Section{
+                        Button(action: addTask){
+                            Text("Add New Task")
+                        }
+                        .alert("Please fill out all fields", isPresented: $showingAlert){
+                            Button("OK", role: .cancel){}
+                        }
+                    }
+                    
                 }
-
             }
         }
         

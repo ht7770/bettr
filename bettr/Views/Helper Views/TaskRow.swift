@@ -29,8 +29,6 @@ struct TaskRow: View {
                 HStack {
                     task.image
                         .font(.system(size: 20))
-                        //.resizable()
-                        //.frame(width: 25, height: 25)
                     VStack(alignment: .leading) {
                         Text(task.title)
                             .bold()
