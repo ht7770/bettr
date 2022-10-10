@@ -8,25 +8,53 @@
 import SwiftUI
 
 struct TaskOptionsButton: View {
+    
+    @Binding var filterHealthTasks: Bool
+    @Binding var filterWorkTasks: Bool
+    @Binding var filterLearningTasks: Bool
+    
+    
     var body: some View {
             Menu{
-                Button {
-                    print("Show Health Tasks")
-                } label: {
-                    Label("Show Health Tasks", systemImage: "heart.fill")
+                Button(action: {filterHealthTasks.toggle()}){
+                label: do {
+                    switch filterHealthTasks {
+                    case true:
+                        Label("Hide Health Tasks", systemImage: "heart.fill")
+                        
+                    default:
+                        Label("Show Health Tasks", systemImage: "heart")
+                        
+                    }
                 }
-
-                Button {
-                    print("Show Work Tasks")
-                } label: {
-                    Label("Show Work Tasks ", systemImage: "briefcase.fill")
                 }
                 
-                Button {
-                    print("Show Learning Tasks")
-                } label: {
-                    Label("Show Learning Tasks ", systemImage: "book.fill")
+                Button(action: {filterWorkTasks.toggle()}){
+                label: do {
+                    switch filterWorkTasks {
+                    case true:
+                        Label("Hide Work Tasks", systemImage: "briefcase.fill")
+                        
+                    default:
+                        Label("Show Work Tasks", systemImage: "briefcase")
+                        
+                    }
                 }
+                }
+                
+                Button(action: {filterLearningTasks.toggle()}){
+                label: do {
+                    switch filterLearningTasks {
+                    case true:
+                        Label("Hide Learning Tasks", systemImage: "book.fill")
+                        
+                    default:
+                        Label("Show Learning Tasks", systemImage: "book")
+                        
+                    }
+                }
+                }
+
             } label: {
                 Image(systemName: "ellipsis.circle").foregroundColor(.white)
                     
@@ -34,8 +62,3 @@ struct TaskOptionsButton: View {
     }
 }
 
-struct TaskOptionsButton_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskOptionsButton()
-    }
-}
