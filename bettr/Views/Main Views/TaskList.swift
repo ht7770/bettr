@@ -11,9 +11,9 @@ struct TaskList: View {
     @EnvironmentObject var taskModelData: TaskModelData
     @State private var showTodoTasks = false
     
-    @State private var filterHealthTasks = true
-    @State private var filterWorkTasks = true
-    @State private var filterLearningTasks = true
+    @State private var showHealthTasks = true
+    @State private var showWorkTasks = true
+    @State private var showLearningTasks = true
     
     
     var filteredTasks: [Task] {
@@ -21,6 +21,7 @@ struct TaskList: View {
             (!showTodoTasks || !task.state)
         }
     }
+    
     
     var body: some View {
         NavigationView {
@@ -40,7 +41,7 @@ struct TaskList: View {
             .navigationBarItems(trailing:
                                     HStack{
                 addTaskButton()
-                TaskOptionsButton(filterHealthTasks: $filterHealthTasks, filterWorkTasks: $filterWorkTasks, filterLearningTasks: $filterLearningTasks)
+                TaskOptionsButton(filterHealthTasks: $showHealthTasks, filterWorkTasks: $showWorkTasks, filterLearningTasks: $showLearningTasks)
             })
             .navigationTitle("Today's Tasks")
             .scrollContentBackground(.hidden)
