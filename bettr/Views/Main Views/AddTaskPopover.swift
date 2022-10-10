@@ -16,7 +16,7 @@ struct AddTaskPopover: View {
     @State private var taskTitle: String = ""
     @State private var taskDesc: String = ""
     @State private var datePick: Bool = true
-    @State private var taskType: Task.Category = .fitness
+    @State private var taskType: Task.Category = .health
     
     @State private var showingAlert: Bool = false
     
@@ -28,9 +28,9 @@ struct AddTaskPopover: View {
             Form {
                 Section{
                     Picker("Type", selection: $taskType){
-                        Text("Fitness").tag(Task.Category.fitness)
+                        Text("Health").tag(Task.Category.health)
                         Text("Work").tag(Task.Category.work)
-                        Text("Education").tag(Task.Category.education)
+                        Text("Learning").tag(Task.Category.learning)
                     }
                 }
                 Section(header: Text("TASK DETAILS")) {

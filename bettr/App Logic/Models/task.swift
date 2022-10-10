@@ -19,9 +19,9 @@ struct Task: Hashable, Codable, Identifiable{
     var taskCategory: Category
        
     enum Category: String, CaseIterable, Codable{
-        case fitness = "heart.fill"
-        case work = "command"
-        case education = "brain"
+        case health = "heart.fill"
+        case work = "briefcase.fill"
+        case learning = "book.fill"
     }
     
         
