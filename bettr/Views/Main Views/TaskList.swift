@@ -32,7 +32,11 @@ struct TaskList: View {
                 .onDelete(perform: taskModelData.removeTask(at:))
     
             }
-            .navigationBarItems(trailing: addTaskButton())
+            .navigationBarItems(trailing:
+                                    HStack{
+                addTaskButton()
+                TaskOptionsButton()
+            })
             .navigationTitle("Today's Tasks")
             .scrollContentBackground(.hidden)
             .background(backgroundColour())

@@ -16,7 +16,6 @@ struct addTaskButton: View {
             Button(action: addTask) {
                 HStack{
                     Image(systemName: "plus")
-                    Text("Add")
                 }
                 .foregroundColor(.white)
                 .bold()

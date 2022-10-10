@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6907567028F4C4C400FAC434 /* TaskOptionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6907566F28F4C4C400FAC434 /* TaskOptionsButton.swift */; };
 		6908FACB28E2F808003273A3 /* addTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908FACA28E2F808003273A3 /* addTaskButton.swift */; };
 		6908FACF28E33912003273A3 /* CompleteToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908FACE28E33912003273A3 /* CompleteToggleButton.swift */; };
 		6908FAD128E46326003273A3 /* AddTaskPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908FAD028E46326003273A3 /* AddTaskPopover.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6907566F28F4C4C400FAC434 /* TaskOptionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskOptionsButton.swift; sourceTree = "<group>"; };
 		6908FACA28E2F808003273A3 /* addTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskButton.swift; sourceTree = "<group>"; };
 		6908FACE28E33912003273A3 /* CompleteToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToggleButton.swift; sourceTree = "<group>"; };
 		6908FAD028E46326003273A3 /* AddTaskPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPopover.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				69D8D0B52783A22A009BE146 /* backgroundColour.swift */,
 				697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */,
 				6908FACE28E33912003273A3 /* CompleteToggleButton.swift */,
+				6907566F28F4C4C400FAC434 /* TaskOptionsButton.swift */,
 			);
 			path = "Helper Views";
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6908FACB28E2F808003273A3 /* addTaskButton.swift in Sources */,
+				6907567028F4C4C400FAC434 /* TaskOptionsButton.swift in Sources */,
 				6950F32A28DC803300C78CE8 /* userDefaultExtension.swift in Sources */,
 				69EB6865277F5E540010F224 /* ContentView.swift in Sources */,
 				6908FACF28E33912003273A3 /* CompleteToggleButton.swift in Sources */,
