@@ -19,14 +19,14 @@ struct Task: Hashable, Codable, Identifiable{
     var taskCategory: Category
        
     enum Category: String, CaseIterable, Codable{
-        case fitness = "Fitness"
-        case work = "Work"
-        case education = "Education"
+        case fitness = "heart.fill"
+        case work = "command"
+        case education = "brain"
     }
     
-    var imageName: String = "aqi.medium"
+        
     var image: Image{
-        Image(systemName: imageName)
+        Image(systemName: taskCategory.rawValue)
     }
     
     func getState() -> String{
