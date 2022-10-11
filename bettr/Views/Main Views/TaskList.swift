@@ -55,6 +55,19 @@ struct TaskList: View {
         }
     }
     
+    var todaysTasks: [Task]{
+        completedFilteredTasks.filter { task in
+            task.dateState
+        }
+    }
+    
+    var tomorrowsTasks: [Task]{
+        completedFilteredTasks.filter { task in
+            !task.dateState
+        }
+    }
+    
+    
     
     var body: some View {
         NavigationView {
@@ -64,21 +77,33 @@ struct TaskList: View {
                     Text("Hide finished tasks")
                     
                 }
-
-                ForEach(completedFilteredTasks, id:\.self) { task in
+                
+                Section(header: Text("Today")){
+                    
+                    ForEach(todaysTasks, id:\.self) { task in
                         TaskRow(task: task)
+                    }
+                    .onDelete(perform: taskModelData.removeTask(at:))
                 }
-                .onDelete(perform: taskModelData.removeTask(at:))
-    
+                
+                Section(header: Text("Tomorrow")){
+                    
+                    ForEach(tomorrowsTasks, id:\.self) { task in
+                        TaskRow(task: task)
+                    }
+                    .onDelete(perform: taskModelData.removeTask(at:))
+                }
             }
             .navigationBarItems(trailing:
                                     HStack{
                 addTaskButton()
                 TaskOptionsButton(filterHealthTasks: $showHealthTasks, filterWorkTasks: $showWorkTasks, filterLearningTasks: $showLearningTasks)
             })
-            .navigationTitle("Today's Tasks")
+            .navigationTitle("Your Tasks")
             .scrollContentBackground(.hidden)
             .background(backgroundColour())
+            
+            
             
             
         }
