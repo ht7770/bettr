@@ -85,6 +85,7 @@ struct TaskList: View {
                     }
                     .onDelete(perform: taskModelData.removeTask(at:))
                 }
+                .headerProminence(.increased)
                 
                 Section(header: Text("Tomorrow")){
                     
@@ -93,6 +94,8 @@ struct TaskList: View {
                     }
                     .onDelete(perform: taskModelData.removeTask(at:))
                 }
+                .headerProminence(.increased)
+                
             }
             .navigationBarItems(trailing:
                                     HStack{
