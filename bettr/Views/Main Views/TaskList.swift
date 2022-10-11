@@ -15,9 +15,42 @@ struct TaskList: View {
     @State private var showWorkTasks = true
     @State private var showLearningTasks = true
     
-    
-    var filteredTasks: [Task] {
+    var categoryFiltered: [Task] {
         taskModelData.tasks.filter { task in
+            let categoryType = task.taskCategory.rawValue
+            switch (categoryType) {
+            case "heart.fill":
+                if showHealthTasks{
+                    return true
+                }
+                else{
+                    return false
+                }
+                
+            case "briefcase.fill":
+                if showWorkTasks{
+                    return true
+                }
+                else{
+                    return false
+                }
+                
+            case "book.fill":
+                if showLearningTasks{
+                    return true
+                }
+                else{
+                    return false
+                }
+                
+            default:
+                return false
+            }
+        }
+    }
+    
+    var completedFilteredTasks: [Task] {
+        categoryFiltered.filter { task in
             (!showTodoTasks || !task.state)
         }
     }
@@ -32,7 +65,7 @@ struct TaskList: View {
                     
                 }
 
-                ForEach(filteredTasks, id:\.self) { task in
+                ForEach(completedFilteredTasks, id:\.self) { task in
                         TaskRow(task: task)
                 }
                 .onDelete(perform: taskModelData.removeTask(at:))
