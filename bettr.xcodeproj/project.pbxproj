@@ -19,6 +19,7 @@
 		6950F33A28DDCFDB00C78CE8 /* taskData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6950F33928DDCFDB00C78CE8 /* taskData.json */; };
 		6950F33D28DDFB6500C78CE8 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F33C28DDFB6500C78CE8 /* TaskList.swift */; };
 		6950F33F28DE038200C78CE8 /* TaskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F33E28DE038200C78CE8 /* TaskDetail.swift */; };
+		695DC78428FEB82F00A70F38 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695DC78328FEB82F00A70F38 /* SettingsView.swift */; };
 		697CAEAB2781282D0096D3AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */; };
 		69D8D0B62783A22A009BE146 /* backgroundColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8D0B52783A22A009BE146 /* backgroundColour.swift */; };
 		69EB6863277F5E540010F224 /* bettrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EB6862277F5E540010F224 /* bettrApp.swift */; };
@@ -60,6 +61,7 @@
 		6950F33928DDCFDB00C78CE8 /* taskData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taskData.json; sourceTree = "<group>"; };
 		6950F33C28DDFB6500C78CE8 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		6950F33E28DE038200C78CE8 /* TaskDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetail.swift; sourceTree = "<group>"; };
+		695DC78328FEB82F00A70F38 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		697CAEAC278131BB0096D3AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		69D8D0B52783A22A009BE146 /* backgroundColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundColour.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				6950F33E28DE038200C78CE8 /* TaskDetail.swift */,
 				6908FAD028E46326003273A3 /* AddTaskPopover.swift */,
 				6908FAD428EB39FE003273A3 /* EditTaskPopover.swift */,
+				695DC78328FEB82F00A70F38 /* SettingsView.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695DC78428FEB82F00A70F38 /* SettingsView.swift in Sources */,
 				6908FACB28E2F808003273A3 /* addTaskButton.swift in Sources */,
 				6907567028F4C4C400FAC434 /* TaskOptionsButton.swift in Sources */,
 				6950F32A28DC803300C78CE8 /* userDefaultExtension.swift in Sources */,
