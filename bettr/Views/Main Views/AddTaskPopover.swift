@@ -29,12 +29,14 @@ struct AddTaskPopover: View {
                 Spacer(minLength: 50)
                 
                 ZStack{
+                    Circle()
+                        .fill(Color("circleFill"))
+                        .frame(width: 120, height: 120)
+                    
                     Image(systemName: taskType.rawValue)
                         .font(.system(size: 50))
-                    
-                    Circle()
-                        .stroke(Color(""), lineWidth: 2)
-                        .frame(width: 100, height: 100)
+                        .foregroundColor(Color("categoryColour"))
+                        .padding()
                 }
                 Spacer()
                 Form {
