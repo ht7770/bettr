@@ -14,6 +14,7 @@ struct ContentView: View {
     enum Tab{
         case tasks
         case settings
+        case profile
         
     }
     
@@ -32,12 +33,18 @@ struct ContentView: View {
                 }
                 .tag(Tab.tasks)
             
+            ProfileView()
+                .tabItem{
+                    Label("Profile", systemImage: "person.fill")
+                }
+                .tag(Tab.profile)
             
             SettingsView()
                 .tabItem{
                     Label("Settings", systemImage: "gear")
                 }
                 .tag(Tab.settings)
+            
         }
         
         .accentColor(Color("tabFontColour"))

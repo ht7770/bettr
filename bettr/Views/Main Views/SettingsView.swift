@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var name: String = ""
+    
     
     var body: some View {
         NavigationView{
             Form{
-                Section(header: Text("PROFILE")) {
-                    TextField("Name", text: $name)
-                }
                 
                 Section(header: Text("ABOUT")){
                     HStack{

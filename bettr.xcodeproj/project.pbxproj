@@ -20,6 +20,7 @@
 		6950F33F28DE038200C78CE8 /* TaskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6950F33E28DE038200C78CE8 /* TaskDetail.swift */; };
 		695DC78428FEB82F00A70F38 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695DC78328FEB82F00A70F38 /* SettingsView.swift */; };
 		695DC786290021E000A70F38 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695DC785290021E000A70F38 /* user.swift */; };
+		695DC78829009A1D00A70F38 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695DC78729009A1D00A70F38 /* ProfileView.swift */; };
 		697CAEAB2781282D0096D3AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */; };
 		69D8D0B62783A22A009BE146 /* backgroundColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8D0B52783A22A009BE146 /* backgroundColour.swift */; };
 		69EB6863277F5E540010F224 /* bettrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EB6862277F5E540010F224 /* bettrApp.swift */; };
@@ -62,6 +63,7 @@
 		6950F33E28DE038200C78CE8 /* TaskDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetail.swift; sourceTree = "<group>"; };
 		695DC78328FEB82F00A70F38 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		695DC785290021E000A70F38 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		695DC78729009A1D00A70F38 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		697CAEAA2781282D0096D3AC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		697CAEAC278131BB0096D3AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		69D8D0B52783A22A009BE146 /* backgroundColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundColour.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				6950F33E28DE038200C78CE8 /* TaskDetail.swift */,
 				6908FAD028E46326003273A3 /* AddTaskPopover.swift */,
 				695DC78328FEB82F00A70F38 /* SettingsView.swift */,
+				695DC78729009A1D00A70F38 /* ProfileView.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				69EB6865277F5E540010F224 /* ContentView.swift in Sources */,
 				6908FACF28E33912003273A3 /* CompleteToggleButton.swift in Sources */,
 				69EB6863277F5E540010F224 /* bettrApp.swift in Sources */,
+				695DC78829009A1D00A70F38 /* ProfileView.swift in Sources */,
 				6950F32E28DDC6B100C78CE8 /* TaskRow.swift in Sources */,
 				6950F32C28DDC33000C78CE8 /* task.swift in Sources */,
 				6950F33F28DE038200C78CE8 /* TaskDetail.swift in Sources */,
