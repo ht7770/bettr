@@ -44,11 +44,6 @@ struct TaskRow: View {
                     }
                 }
                 .opacity(getTaskState() ? 0.3 : 1.0)
-                //.popover(isPresented: $showPopover){
-                //    if !taskModelData.tasks.isEmpty{
-                //        EditTaskPopover(showPopover: $showPopover, taskIndex: taskIndex)
-                //    }
-               // }
                 Spacer()
                 
                 if !taskModelData.tasks.isEmpty{
