@@ -24,6 +24,7 @@ struct TaskRow: View {
     }
     
     var body: some View {
+        
         HStack {
             Button(action: editTask){
                 HStack {
@@ -41,7 +42,7 @@ struct TaskRow: View {
                     }
                 }
             }
-            .opacity(taskModelData.tasks[taskIndex].state ? 0.3 : 1.0)
+            .opacity(getTaskState() ? 0.3 : 1.0)
             //.popover(isPresented: $showPopover){
             //    if !taskModelData.tasks.isEmpty{
             //        EditTaskPopover(showPopover: $showPopover, taskIndex: taskIndex)
@@ -59,6 +60,14 @@ struct TaskRow: View {
     func editTask(){
         print("edit task button pressed")
         showPopover = true
+    }
+    
+    func getTaskState() -> Bool{
+        var state = true
+        if !taskModelData.tasks.isEmpty{
+            state = taskModelData.tasks[taskIndex].state
+        }
+        return state
     }
 }
 

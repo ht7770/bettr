@@ -83,7 +83,7 @@ struct TaskList: View {
                     ForEach(todaysTasks, id:\.self) { task in
                         TaskRow(task: task)
                     }
-                    .onDelete(perform: taskModelData.removeTask(at:))
+                    .onDelete(perform: removeTodayTask(at:))
                 }
                 .headerProminence(.increased)
                 
@@ -92,11 +92,14 @@ struct TaskList: View {
                     ForEach(tomorrowsTasks, id:\.self) { task in
                         TaskRow(task: task)
                     }
-                    .onDelete(perform: taskModelData.removeTask(at:))
+                    .onDelete(perform: removeTomorrowTask(at:))
+                    
                 }
+                              
                 .headerProminence(.increased)
                 
             }
+            
             .navigationBarItems(trailing:
                                     HStack{
                 addTaskButton()
@@ -112,7 +115,23 @@ struct TaskList: View {
         }
         
     }
+    
+    func removeTodayTask(at offsets: IndexSet){
+        let taskToBeRemoved: Task = todaysTasks[offsets[offsets.startIndex]]
+        let taskIndex = taskModelData.tasks.firstIndex(where: {$0.id == taskToBeRemoved.id })!
+        taskModelData.removeTask(taskindex: taskIndex)
+                    
+    }
+    
+    func removeTomorrowTask(at offsets: IndexSet){
+        let taskToBeRemoved: Task = tomorrowsTasks[offsets[offsets.startIndex]]
+        let taskIndex = taskModelData.tasks.firstIndex(where: {$0.id == taskToBeRemoved.id })!
+        taskModelData.removeTask(taskindex: taskIndex)
+                    
+    }
+    
 }
+
 struct TaskList_Previews: PreviewProvider {
     static var previews: some View {
         TaskList()
