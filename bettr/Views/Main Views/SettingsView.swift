@@ -36,10 +36,11 @@ struct SettingsView: View {
                     }
                 }
             .navigationTitle("Settings")
+            .background(backgroundColour())
            
                 
             }
-        .background(backgroundColour())
+
         }
     }
 

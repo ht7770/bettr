@@ -21,11 +21,13 @@ struct CompleteToggleButton: View {
                     Image(systemName: "circlebadge.fill")
                         .resizable()
                         .frame(width: 20, height: 20)
+                        .contentShape(Rectangle())
                     
                 default:
                     Image(systemName: "circlebadge")
                         .resizable()
                         .frame(width: 20, height: 20)
+                        .contentShape(Rectangle())
                 }
         }
         

@@ -10,7 +10,7 @@ import SwiftUI
 struct TaskRow: View {
     @EnvironmentObject var taskModelData: TaskModelData
     
-    @State private var showPopover: Bool = false
+    @State private var expandTask: Bool = false
     
     var task: Task
     
@@ -25,41 +25,52 @@ struct TaskRow: View {
     
     var body: some View {
         
-        HStack {
-            Button(action: editTask){
-                HStack {
-                    task.image
-                        .font(.system(size: 20))
-                    VStack(alignment: .leading) {
-                        Text(task.title)
-                            .bold()
-                        
-                        HStack {
-                            Text(task.getState())
+        VStack(alignment: .leading) {
+            HStack {
+                Button(action: withAnimation {editTask}){
+                    HStack {
+                        task.image
+                            .font(.system(size: 20))
+                        VStack(alignment: .leading) {
+                            Text(task.title)
+                                .bold()
+                            
+                            HStack {
+                                Text(task.getState())
+                            }
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
                         }
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
                     }
                 }
+                .opacity(getTaskState() ? 0.3 : 1.0)
+                //.popover(isPresented: $showPopover){
+                //    if !taskModelData.tasks.isEmpty{
+                //        EditTaskPopover(showPopover: $showPopover, taskIndex: taskIndex)
+                //    }
+               // }
+                Spacer()
+                
+                if !taskModelData.tasks.isEmpty{
+                    CompleteToggleButton(isComplete: $taskModelData.tasks[taskIndex].state)
+                }
             }
-            .opacity(getTaskState() ? 0.3 : 1.0)
-            //.popover(isPresented: $showPopover){
-            //    if !taskModelData.tasks.isEmpty{
-            //        EditTaskPopover(showPopover: $showPopover, taskIndex: taskIndex)
-            //    }
-           // }
-            Spacer()
+            if expandTask {
+                Divider()
+                Text(task.description)
+                    .font(.subheadline)
+                    .opacity(getTaskState() ? 0.3 : 1.0)
+            }
+    
             
-            if !taskModelData.tasks.isEmpty{
-                CompleteToggleButton(isComplete: $taskModelData.tasks[taskIndex].state)
-            }
         }
+    
     }
     
     
     func editTask(){
-        print("edit task button pressed")
-        showPopover = true
+        print("show task button pressed")
+        expandTask.toggle()
     }
     
     func getTaskState() -> Bool{

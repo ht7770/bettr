@@ -109,9 +109,6 @@ struct TaskList: View {
             .scrollContentBackground(.hidden)
             .background(backgroundColour())
             
-            
-            
-            
         }
         
     }
