@@ -12,6 +12,7 @@ import Combine
 final class TaskModelData: ObservableObject{
     
     @Published var tasks: [Task] = loadTaskModel()
+    @Published var profile = User.default
     
     
     func removeTask(at offsets: IndexSet){

@@ -33,6 +33,7 @@ struct SettingsView: View {
                     }
                 }
             .navigationTitle("Settings")
+            .scrollContentBackground(.hidden)
             .background(backgroundColour())
            
                 

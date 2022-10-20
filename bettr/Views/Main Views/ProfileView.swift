@@ -8,27 +8,54 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
+    
+    @EnvironmentObject var taskModelData: TaskModelData
     
     var body: some View {
         NavigationView {
             Form{
-                Section {
-                    TextField("First Name", text: $firstName)
-                    TextField("Last Name", text: $lastName)
+                Section(header: Text("Personal Details")){
+                    HStack{
+                        Text("First Name")
+                        Spacer()
+                        Text(taskModelData.profile.firstName)
+                    }
+                    HStack{
+                        Text("Last Name")
+                        Spacer()
+                        Text(taskModelData.profile.lastName)
+                    }
+                    
                 }
-                Section {
-                    Text("Placeholder toggle")
+                Section(header: Text("Monthly Goals")) {
+                    HStack{
+                        Text("Health")
+                        Spacer()
+                        Text("\(taskModelData.profile.healthCompleted) / \(taskModelData.profile.healthGoal)")
+                    }
+                    HStack{
+                        Text("Work")
+                        Spacer()
+                        Text("\(taskModelData.profile.workCompleted) / \(taskModelData.profile.workGoal)")
+                    }
+                    HStack{
+                        Text("Learning")
+                        Spacer()
+                        Text("\(taskModelData.profile.learningCompleted) / \(taskModelData.profile.learningGoal)")
+                    }
                 }
             }
             .navigationTitle("Profile")
+            .scrollContentBackground(.hidden)
+            .background(backgroundColour())
         }
+
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(TaskModelData())
     }
 }
