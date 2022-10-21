@@ -45,7 +45,7 @@ struct ProfileView: View {
                     }
                 }
             }
-            .navigationBarItems(trailing: editProfileButton())
+            .navigationBarItems(trailing: editProfileButton(profile: $taskModelData.profile))
             .navigationTitle("Profile")
             .scrollContentBackground(.hidden)
             .background(backgroundColour())

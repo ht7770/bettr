@@ -11,6 +11,9 @@ struct editProfileButton: View {
     
     @State private var showPopover = false
     
+    @Binding var profile: User
+    
+    
     var body: some View {
         HStack{
             Button(action: editProfileFunc){
@@ -21,7 +24,7 @@ struct editProfileButton: View {
             
         }
         .popover(isPresented: $showPopover){
-            EditProfile()
+            EditProfile(showPopover: $showPopover, profile: $profile)
         }
     }
     
@@ -31,8 +34,3 @@ struct editProfileButton: View {
     }
 }
 
-struct editProfileButton_Previews: PreviewProvider {
-    static var previews: some View {
-        editProfileButton()
-    }
-}
