@@ -45,6 +45,7 @@ struct ProfileView: View {
                     }
                 }
             }
+            .navigationBarItems(trailing: editProfileButton())
             .navigationTitle("Profile")
             .scrollContentBackground(.hidden)
             .background(backgroundColour())
