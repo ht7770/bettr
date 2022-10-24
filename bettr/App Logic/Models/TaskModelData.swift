@@ -12,7 +12,7 @@ import Combine
 final class TaskModelData: ObservableObject{
     
     @Published var tasks: [Task] = loadTaskModel()
-    @Published var profile = User.default
+    @Published var profile = loadUser()
     
     
     func removeTask(at offsets: IndexSet){
@@ -53,6 +53,12 @@ final class TaskModelData: ObservableObject{
         UserDefaults.standard.storeCodable(tasks, key: "taskModel")
     }
     
+    func saveUser(){
+        print("Saving user...")
+        UserDefaults.standard.storeCodable(profile, key: "profile")
+    }
+
+    
     func updateTask(taskIndex: Int, taskTitle: String, taskDesc: String, datePick: Bool){
         print("Updating Task: \(tasks[taskIndex].id)")
         tasks[taskIndex].title = taskTitle
@@ -60,7 +66,8 @@ final class TaskModelData: ObservableObject{
         tasks[taskIndex].dateState = datePick
         saveTaskModel()
     }
-
+    
+ 
     
 }
 
@@ -82,12 +89,26 @@ func loadTaskModel() -> [Task]{
     let optionalLoadedTasks: [Task]? = UserDefaults.standard.retrieveCodable(for: "taskModel", castTo: [Task].self)
     
     if optionalLoadedTasks != nil{
-        print("Found a tasks model! loading...")
+        print("Found a tasks model! Loading...")
         let loadedTasks: [Task] = optionalLoadedTasks!
         return loadedTasks
     }
     else{
         print("Couldn't find any stored tasks model, starting with init tasks")
         return addModelPlaceholder()
+    }
+}
+
+func loadUser() -> User{
+    let optionalLoadedProfile: User? = UserDefaults.standard.retrieveCodable(for: "profile", castTo: User.self)
+    
+    if optionalLoadedProfile != nil{
+        print("Found a user! Loading...")
+        let loadedUser: User = optionalLoadedProfile!
+        return loadedUser
+    }
+    else{
+        print("Couldn't find any stored user, starting with default")
+        return User.default
     }
 }
