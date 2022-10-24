@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var taskModelData: TaskModelData
+    
     @State private var tabSelection: Tab = .tasks
+    @State private var draftProfile = User.default
     
     enum Tab{
         case tasks
@@ -23,10 +26,12 @@ struct ContentView: View {
         tabBarAppearance.configureWithOpaqueBackground()
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         UITabBar.appearance().barTintColor = .black
+        
     }
     
     var body: some View {
         TabView(selection: $tabSelection){
+            
             TaskList()
                 .tabItem{
                     Label("Tasks", systemImage: "list.bullet")
@@ -46,13 +51,18 @@ struct ContentView: View {
                 .tag(Tab.settings)
             
         }
-        
         .accentColor(Color("tabFontColour"))
-        
-
-            
+        .popover(isPresented: $taskModelData.notloggedIn){
+            EditProfile(showPopover: $taskModelData.notloggedIn, profile: $draftProfile)
+                .environmentObject(taskModelData)
+                .onAppear {
+                    draftProfile = taskModelData.profile
+                }
+                .onDisappear {
+                    taskModelData.profile = draftProfile
+                }
+            }
         }
-    
     }
 
 struct ContentView_Previews: PreviewProvider {

@@ -10,9 +10,11 @@ import Combine
 
 
 final class TaskModelData: ObservableObject{
-    
+    @Published var notloggedIn: Bool = loadLoggedInStatus()
     @Published var tasks: [Task] = loadTaskModel()
-    @Published var profile = loadUser()
+    @Published var profile: User = loadUser()
+    
+    
     
     
     func removeTask(at offsets: IndexSet){
@@ -29,6 +31,16 @@ final class TaskModelData: ObservableObject{
         tasks.remove(at: taskindex)
         saveTaskModel()
     }
+    
+    func checkLoggedIn(){
+        if profile.firstName == "John" && profile.lastName == "Appleseed"{
+            notloggedIn = false
+        } else {
+            notloggedIn = true
+        }
+    }
+    
+    
     
     func addTask(taskToBeAdded: Task){
         print("Adding task to list: \(taskToBeAdded.title)")
@@ -56,8 +68,8 @@ final class TaskModelData: ObservableObject{
     func saveUser(){
         print("Saving user...")
         UserDefaults.standard.storeCodable(profile, key: "profile")
+        checkLoggedIn()
     }
-
     
     func updateTask(taskIndex: Int, taskTitle: String, taskDesc: String, datePick: Bool){
         print("Updating Task: \(tasks[taskIndex].id)")
@@ -110,5 +122,20 @@ func loadUser() -> User{
     else{
         print("Couldn't find any stored user, starting with default")
         return User.default
+    }
+}
+
+func loadLoggedInStatus() -> Bool{
+    let optionalLoadedProfile: User? = UserDefaults.standard.retrieveCodable(for: "profile", castTo: User.self)
+    
+    if optionalLoadedProfile != nil{
+        let loadedUser: User = optionalLoadedProfile!
+        if loadedUser.firstName == "John" && loadedUser.lastName == "Appleseed"{
+            return true
+        }
+        else{ return false }
+    }
+    else{
+        return false
     }
 }
