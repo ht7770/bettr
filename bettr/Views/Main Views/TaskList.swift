@@ -91,6 +91,7 @@ struct TaskList: View {
                     
                     ForEach(tomorrowsTasks, id:\.self) { task in
                         TaskRow(task: task)
+                        
                     }
                     .onDelete(perform: removeTomorrowTask(at:))
                     

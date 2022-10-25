@@ -14,7 +14,28 @@ final class TaskModelData: ObservableObject{
     @Published var tasks: [Task] = loadTaskModel()
     @Published var profile: User = loadUser()
     
+    var tasksToBePruned : [Int] = []
     
+    init(){
+        pruneTasks()
+    }
+    
+    func pruneTasks(){
+        var tasksIndexToBePruned : [Int] = []
+        print("Pruning Tasks...")
+        for (index, task) in tasks.enumerated(){
+            if (!Calendar.current.isDate(Date(), inSameDayAs: task.dateSet)) && (task.state){
+                tasksIndexToBePruned.append(index)
+            }
+            else if (!task.dateState) && (!Calendar.current.isDate(Date(), inSameDayAs: task.dateSet)) {
+                var newTask = Task(id: getNextID(), title: task.title, state: task.state, description: task.description, dateSet: task.dateSet, dateState: true, taskCategory: task.taskCategory)
+                addTask(taskToBeAdded: newTask)
+            }
+        }
+        for index in tasksToBePruned{
+            removeTask(taskindex: index)
+        }
+    }
     
     
     func removeTask(at offsets: IndexSet){
@@ -62,6 +83,7 @@ final class TaskModelData: ObservableObject{
     
     func saveTaskModel(){
         print("Saving tasks model...")
+        pruneTasks()
         UserDefaults.standard.storeCodable(tasks, key: "taskModel")
     }
     
@@ -135,7 +157,5 @@ func loadLoggedInStatus() -> Bool{
         }
         else{ return false }
     }
-    else{
-        return false
-    }
+    else{ return false }
 }
