@@ -21,6 +21,8 @@ struct User: Codable{
     var workCompleted: Int = 0
     var learningCompleted: Int = 0
     
+    var hasEnabledNotifications: Bool = false
+    
     
     static let `default` = User(firstName: "John", lastName: "Appleseed")
     
@@ -37,6 +39,10 @@ struct User: Codable{
             workCompleted += 1
         }
         
+    }
+    
+    mutating func changeNotifcationPermissions(newValue: Bool){
+        hasEnabledNotifications = newValue
     }
     
     

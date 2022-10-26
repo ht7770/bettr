@@ -7,12 +7,21 @@
 
 import Foundation
 import Combine
+import UserNotifications
 
 
 final class TaskModelData: ObservableObject{
-    @Published var notloggedIn: Bool = loadLoggedInStatus()
+   
     @Published var tasks: [Task] = loadTaskModel()
     @Published var profile: User = loadUser()
+    @Published var notloggedIn: Bool = loadLoggedInStatus()
+    
+    init(){
+        NotificationHandler.shared.requestNotificationPermission(completion: { (permissionGranted) in
+            self.profile.hasEnabledNotifications = permissionGranted
+        })
+    }
+                                                                
     
     func pruneTasks(){
         var tasksIndexToBePruned : [Int] = []
@@ -35,6 +44,20 @@ final class TaskModelData: ObservableObject{
         
         for task in tasksToBeAdded{
             addTask(taskToBeAdded: task)
+        }
+    }
+    
+    func notificationUpdate(){
+        var incompleteCount: Int = 0
+        for task in tasks{
+            if task.state == false && task.dateState == true {
+                incompleteCount += 1
+
+            }
+        }
+        if profile.hasEnabledNotifications{
+            print("Updating local notifications with latest data...")
+            NotificationHandler.shared.endOfDayReminder(inCompleteCount: incompleteCount)
         }
     }
     
@@ -64,8 +87,6 @@ final class TaskModelData: ObservableObject{
         else if task.taskCategory == .work{
             profile.workGoal += 1
         }
-        
-        
     }
     
     func checkLoggedIn(){
@@ -75,8 +96,6 @@ final class TaskModelData: ObservableObject{
             notloggedIn = true
         }
     }
-    
-    
     
     func addTask(taskToBeAdded: Task){
         print("Adding task to list: \(taskToBeAdded.title)")
@@ -98,11 +117,12 @@ final class TaskModelData: ObservableObject{
     
     func saveTaskModel(){
         print("Saving tasks model...")
+        notificationUpdate()
         UserDefaults.standard.storeCodable(tasks, key: "taskModel")
     }
     
     func saveUser(){
-        print("Saving user...")
+        print("Saving user: \(profile.firstName)")
         UserDefaults.standard.storeCodable(profile, key: "profile")
         checkLoggedIn()
     }
