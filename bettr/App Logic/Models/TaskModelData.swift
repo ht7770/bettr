@@ -28,6 +28,7 @@ final class TaskModelData: ObservableObject{
         for (index, task) in tasks.enumerated(){
             if (!Calendar.current.isDate(Date(), inSameDayAs: task.dateSet)) && (task.state){
                 tasksIndexToBePruned.append(index)
+                increaseCategoryCount(task: task)
             }
             else if (!task.dateState) && (!Calendar.current.isDate(Date(), inSameDayAs: task.dateSet)) {
                 tasksIndexToBePruned.append(index)
@@ -58,6 +59,20 @@ final class TaskModelData: ObservableObject{
         print("Removing task: \(taskToBeRemoved)")
         tasks.remove(at: taskindex)
         saveTaskModel()
+    }
+    
+    func increaseCategoryCount(task: Task){
+        if task.taskCategory == .health{
+            profile.healthGoal += 1
+        }
+        else if task.taskCategory == .learning{
+            profile.learningGoal += 1
+        }
+        else if task.taskCategory == .work{
+            profile.workGoal += 1
+        }
+        
+        
     }
     
     func checkLoggedIn(){
@@ -108,14 +123,23 @@ final class TaskModelData: ObservableObject{
         saveTaskModel()
     }
     
+    func resetModel(){
+        print("Resetting model...")
+        UserDefaults.standard.removeObject(forKey: "taskModel")
+        UserDefaults.standard.removeObject(forKey: "profile")
+        tasks = loadTaskModel()
+        profile = loadUser()
+        notloggedIn = loadLoggedInStatus()
+    }
+    
  
     
 }
 
 func addModelPlaceholder() -> [Task]{
     let initTask: Task = Task(id: 1001, title: "Your First Task", state: false, description: "This is your first task, you can add other tasks or delete this one", dateSet: Date(), dateState: true, taskCategory: Task.Category.work)
-    let secondTask: Task = Task(id: 1002, title: "Your Second Task", state: true, description: "This is your Second task, you can add other tasks or delete this one", dateSet: Date(), dateState: true, taskCategory: Task.Category.health)
-    let thirdTask: Task = Task(id: 1003, title: "Your Third Task", state: true, description: "This is your Third task, you can add other tasks or delete this one, it's scheduled for tomorrow", dateSet: Date(), dateState: false, taskCategory: Task.Category.learning)
+    let secondTask: Task = Task(id: 1002, title: "Your Second Task", state: false, description: "This is your Second task, you can add other tasks or delete this one", dateSet: Date(), dateState: true, taskCategory: Task.Category.health)
+    let thirdTask: Task = Task(id: 1003, title: "Your Third Task", state: false, description: "This is your Third task, you can add other tasks or delete this one, it's scheduled for tomorrow", dateSet: Date(), dateState: false, taskCategory: Task.Category.learning)
     
     var initTasks: [Task] = []
     initTasks.append(initTask)

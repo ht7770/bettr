@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    @EnvironmentObject var taskModelData: TaskModelData
     
     var body: some View {
         NavigationView{
@@ -25,7 +26,8 @@ struct SettingsView: View {
                 
                 Section{
                     Button(action: {
-                        print("Erase all tasks and reload model")
+                        print("Erase all settings pressed!")
+                        taskModelData.resetModel()
                     }, label: {
                         Text("Erase all Content and Settings")
                             .foregroundColor(Color.red)
