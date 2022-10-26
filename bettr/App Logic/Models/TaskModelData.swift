@@ -14,7 +14,8 @@ final class TaskModelData: ObservableObject{
     @Published var tasks: [Task] = loadTaskModel()
     @Published var profile: User = loadUser()
     
-    var tasksToBePruned : [Int] = []
+    var tasksIndexToBePruned : [Int] = []
+    var tasksToBeAdded: [Task] = []
     
     init(){
         pruneTasks()
@@ -22,18 +23,24 @@ final class TaskModelData: ObservableObject{
     
     func pruneTasks(){
         var tasksIndexToBePruned : [Int] = []
+        var tasksToBeAdded : [Task] = []
         print("Pruning Tasks...")
         for (index, task) in tasks.enumerated(){
             if (!Calendar.current.isDate(Date(), inSameDayAs: task.dateSet)) && (task.state){
                 tasksIndexToBePruned.append(index)
             }
             else if (!task.dateState) && (!Calendar.current.isDate(Date(), inSameDayAs: task.dateSet)) {
-                var newTask = Task(id: getNextID(), title: task.title, state: task.state, description: task.description, dateSet: task.dateSet, dateState: true, taskCategory: task.taskCategory)
-                addTask(taskToBeAdded: newTask)
+                tasksIndexToBePruned.append(index)
+                let newTask = Task(id: task.id, title: task.title, state: task.state, description: task.description, dateSet: task.dateSet, dateState: true, taskCategory: task.taskCategory)
+                tasksToBeAdded.append(newTask)
             }
         }
-        for index in tasksToBePruned{
+        for index in tasksIndexToBePruned{
             removeTask(taskindex: index)
+        }
+        
+        for task in tasksToBeAdded{
+            addTask(taskToBeAdded: task)
         }
     }
     
@@ -157,5 +164,5 @@ func loadLoggedInStatus() -> Bool{
         }
         else{ return false }
     }
-    else{ return false }
+    else{ return true }
 }
