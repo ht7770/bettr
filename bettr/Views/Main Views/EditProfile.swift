@@ -72,6 +72,7 @@ struct EditProfile: View {
             showingAlert = true
         }
         else{
+            /// NEEDS FIXING ON SIGNUP 
             taskModelData.saveUser()
             showPopover = false
         }
