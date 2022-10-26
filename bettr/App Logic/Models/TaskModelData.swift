@@ -14,13 +14,6 @@ final class TaskModelData: ObservableObject{
     @Published var tasks: [Task] = loadTaskModel()
     @Published var profile: User = loadUser()
     
-    var tasksIndexToBePruned : [Int] = []
-    var tasksToBeAdded: [Task] = []
-    
-    init(){
-        pruneTasks()
-    }
-    
     func pruneTasks(){
         var tasksIndexToBePruned : [Int] = []
         var tasksToBeAdded : [Task] = []
@@ -105,7 +98,6 @@ final class TaskModelData: ObservableObject{
     
     func saveTaskModel(){
         print("Saving tasks model...")
-        pruneTasks()
         UserDefaults.standard.storeCodable(tasks, key: "taskModel")
     }
     

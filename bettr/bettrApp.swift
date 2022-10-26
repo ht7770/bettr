@@ -29,6 +29,9 @@ struct bettrApp: App {
             if phase == .background{
                 taskModelData.saveTaskModel()
             }
+            else if phase == .active{
+                taskModelData.pruneTasks()
+            }
         }
     }
 }
