@@ -24,6 +24,12 @@ struct SettingsView: View {
                     
                 }
                 
+                Section(footer: Text("Tasks that are created for tomorrow's list are automatically moved to today's list when the next day arrives")){
+                    Toggle(isOn: $taskModelData.profile.automaticallyMoveTasks) {
+                        Text("Auto-Move Tasks")
+                    }
+                }
+                
                 Section{
                     Button(action: {
                         print("Erase all settings pressed!")
@@ -47,5 +53,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .environmentObject(TaskModelData())
     }
 }
