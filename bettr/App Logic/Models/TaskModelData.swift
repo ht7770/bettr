@@ -108,7 +108,6 @@ final class TaskModelData: ObservableObject{
     
     func saveTaskModel(){
         print("Saving tasks model...")
-        notificationUpdate()
         UserDefaults.standard.storeCodable(tasks, key: "taskModel")
     }
     
