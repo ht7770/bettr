@@ -27,10 +27,10 @@ struct bettrApp: App {
             }
         .onChange(of: scenePhase){ phase in
             if phase == .background{
-                taskModelData.saveTaskModel()
+                taskModelData.updateModel()
             }
             else if phase == .active{
-                taskModelData.pruneTasks()
+                taskModelData.updateModel()
             }
         }
     }

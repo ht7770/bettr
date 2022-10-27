@@ -22,6 +22,7 @@ struct User: Codable{
     var learningCompleted: Int = 0
     
     var hasEnabledNotifications: Bool = false
+    var automaticallyMoveTasks: Bool = false
     
     
     static let `default` = User(firstName: "John", lastName: "Appleseed")

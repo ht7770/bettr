@@ -104,6 +104,7 @@ struct TaskList: View {
             .navigationBarItems(trailing:
                                     HStack{
                 addTaskButton()
+                refreshButton()
                 TaskOptionsButton(filterHealthTasks: $showHealthTasks, filterWorkTasks: $showWorkTasks, filterLearningTasks: $showLearningTasks)
             })
             .navigationTitle("Your Tasks")

@@ -27,8 +27,8 @@ class NotificationHandler: ObservableObject{
     
     func endOfDayReminder(inCompleteCount: Int){
         var dateComponents = DateComponents()
-        dateComponents.hour = 16
-        dateComponents.minute = 11
+        dateComponents.hour = 20
+        dateComponents.minute = 00
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         let title = "bettr"
@@ -42,6 +42,9 @@ class NotificationHandler: ObservableObject{
         if inCompleteCount > 0 {
             notificationQueue(id: "reminder-1", trigger: trigger, title: title, bodyData: bodyData)
         }
+        else{
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["reminder-1"])
+        }
     }
     
     func notificationQueue(id: String, trigger: UNNotificationTrigger, title: String, bodyData: String){
@@ -50,7 +53,7 @@ class NotificationHandler: ObservableObject{
         content.body = bodyData
         content.sound = .default
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
-        print("sending notification: \(content.title)")
+        print("sending notification: \(content.body)")
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print("Notification Error: \(error)")

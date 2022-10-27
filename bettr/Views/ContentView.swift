@@ -56,11 +56,9 @@ struct ContentView: View {
         .popover(isPresented: $taskModelData.notloggedIn){
             EditProfile(showPopover: $taskModelData.notloggedIn, profile: $draftProfile)
                 .environmentObject(taskModelData)
-                .onAppear {
-                    draftProfile = taskModelData.profile
-                }
                 .onDisappear {
                     taskModelData.profile = draftProfile
+                    taskModelData.saveUser()
                 }
             }
         }

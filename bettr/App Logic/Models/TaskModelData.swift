@@ -21,6 +21,12 @@ final class TaskModelData: ObservableObject{
             self.profile.hasEnabledNotifications = permissionGranted
         })
     }
+    
+    func updateModel(){
+        pruneTasks()
+        notificationUpdate()
+        saveTaskModel()
+    }
                                                                 
     
     func pruneTasks(){
@@ -28,13 +34,9 @@ final class TaskModelData: ObservableObject{
         var tasksToBeAdded : [Task] = []
         print("Pruning Tasks...")
         for (index, task) in tasks.enumerated(){
-            if (!Calendar.current.isDate(Date(), inSameDayAs: task.dateSet)) && (task.state){
+            if (!task.dateState) && (!Calendar.current.isDate(Date(), inSameDayAs: task.dateSet)) && profile.automaticallyMoveTasks {
                 tasksIndexToBePruned.append(index)
-                increaseCategoryCount(task: task)
-            }
-            else if (!task.dateState) && (!Calendar.current.isDate(Date(), inSameDayAs: task.dateSet)) {
-                tasksIndexToBePruned.append(index)
-                let newTask = Task(id: task.id, title: task.title, state: task.state, description: task.description, dateSet: task.dateSet, dateState: true, taskCategory: task.taskCategory)
+                let newTask = Task(id: task.id, title: task.title, state: task.state, description: task.description, dateSet: Date(), dateState: true, taskCategory: task.taskCategory)
                 tasksToBeAdded.append(newTask)
             }
         }
@@ -63,37 +65,26 @@ final class TaskModelData: ObservableObject{
     
     
     func removeTask(at offsets: IndexSet){
-        let taskToBeRemoved = tasks[offsets[offsets.startIndex]].title
-        print("Removing task: \(taskToBeRemoved)")
+        let taskToBeRemoved = tasks[offsets[offsets.startIndex]]
+        print("Removing task: \(taskToBeRemoved.title)")
         tasks.remove(atOffsets: offsets)
         saveTaskModel()
         
     }
     
     func removeTask(taskindex: Int){
-        let taskToBeRemoved = tasks[taskindex].title
-        print("Removing task: \(taskToBeRemoved)")
+        let taskToBeRemoved = tasks[taskindex]
+        print("Removing task: \(taskToBeRemoved.title)")
         tasks.remove(at: taskindex)
         saveTaskModel()
     }
     
-    func increaseCategoryCount(task: Task){
-        if task.taskCategory == .health{
-            profile.healthGoal += 1
-        }
-        else if task.taskCategory == .learning{
-            profile.learningGoal += 1
-        }
-        else if task.taskCategory == .work{
-            profile.workGoal += 1
-        }
-    }
-    
+
     func checkLoggedIn(){
         if profile.firstName == "John" && profile.lastName == "Appleseed"{
-            notloggedIn = false
-        } else {
             notloggedIn = true
+        } else {
+            notloggedIn = false
         }
     }
     
